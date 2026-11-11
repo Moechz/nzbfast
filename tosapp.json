@@ -12,14 +12,6 @@
     {
       "host": "/Volume1/DockerAppData/nzbfastdocker/config",
       "container": "/config"
-    },
-    {
-      "host": "/Volume1/DockerAppData/nzbfastdocker/downloads",
-      "container": "/downloads"
-    },
-    {
-      "host": "/Volume1/DockerAppData/nzbfastdocker/watch",
-      "container": "/watch"
     }
   ],
   "env": {
@@ -75,7 +67,7 @@
   },
   "healthcheck": [
     "CMD-SHELL",
-    "curl -s -o /dev/null http://127.0.0.1:6789/ || exit 1"
+    "curl -fsS http://127.0.0.1:6789/ >/dev/null || exit 1"
   ],
   "platform": "x86_64",
   "user": "1000:1000",

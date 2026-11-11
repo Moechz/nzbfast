@@ -36,10 +36,8 @@ services:
       TZ: "Asia/Shanghai"
     volumes:
       - /Volume1/DockerAppData/nzbfastdocker/config:/config
-      - /Volume1/DockerAppData/nzbfastdocker/downloads:/downloads
-      - /Volume1/DockerAppData/nzbfastdocker/watch:/watch
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -o /dev/null http://127.0.0.1:6789/ || exit 1"]
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:6789/ >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3

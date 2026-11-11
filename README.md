@@ -20,7 +20,7 @@ nzbfast on TOS 7 through the App Center:
 | Container image | `nzbfast/nzbfast:1.3.1` (Docker Hub, used unmodified) |
 | Open | `http://<NAS-IP>:8068/` (container port 6789) |
 | Runs as | non-root, `user: "1000:1000"` |
-| Persistent data | `/config` → `/Volume1/DockerAppData/nzbfastdocker/config`, `/downloads` → `/Volume1/DockerAppData/nzbfastdocker/downloads`, `/watch` → `/Volume1/DockerAppData/nzbfastdocker/watch` |
+| Persistent data | `/config` → `/Volume1/DockerAppData/nzbfastdocker/config` |
 | Logs | `docker logs nzbfastdocker` (stdout/stderr) |
 
 
@@ -41,8 +41,6 @@ table lists what is created and how it behaves. Nothing else is written.
 | Path | Purpose | Created when | Growth bound | Lifecycle |
 |---|---|---|---|---|
 | `/Volume1/DockerAppData/nzbfastdocker/config` | nzbfast application data (everything the container writes outside /tmp) | on first start / on demand | bounded by your own data | persistent; kept on uninstall unless you ask to delete it |
-| `/Volume1/DockerAppData/nzbfastdocker/downloads` | nzbfast application data (everything the container writes outside /tmp) | on first start / on demand | bounded by your own data | persistent; kept on uninstall unless you ask to delete it |
-| `/Volume1/DockerAppData/nzbfastdocker/watch` | nzbfast application data (everything the container writes outside /tmp) | on first start / on demand | bounded by your own data | persistent; kept on uninstall unless you ask to delete it |
 
 ## Build
 
